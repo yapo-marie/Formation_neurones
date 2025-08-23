@@ -1,0 +1,46 @@
+prospect_identification_task:
+  description: >
+    Ta mission est de trouver et de vérifier les informations d'une seule PME en Côte d'Ivoire.
+
+    Voici ton plan d'action :
+
+    1.  **Trouve une source de PME** : Utilise l'outil de recherche pour trouver un annuaire de PME en Côte d'Ivoire (un site web ou un document PDF).
+    2.  **Extrait un nom d'entreprise** : Lis la source que tu as trouvée et extrais le nom d'une seule PME que tu n'as pas encore traitée.
+    3.  **Trouve le site web** : Utilise l'outil de recherche pour trouver le site web officiel de cette PME.
+    4.  **Extrait les contacts** : Visite le site web de la PME avec l'outil de scraping et trouve la page "Contact" ou "À propos". Extrais l'e-mail, le numéro de téléphone et le numéro WhatsApp.
+
+    L'objectif est de produire les informations pour une seule PME, mais qu'elles soient **réelles et vérifiées**.
+    L'année en cours est {current_year}.
+  expected_output: >
+    Les informations d'une seule PME ivoirienne, formatée en Markdown.
+    Si tu ne trouves pas une information, indique "Non trouvé". Ne laisse aucun champ vide.
+    - Le nom de l'entreprise
+    - Le site web (réel et vérifié)
+    - Une brève description de son activité
+    - Le nom du contact clé et son poste (si trouvable, sinon "Non trouvé")
+    - L'adresse e-mail de contact (réelle et vérifiée, sinon "Non trouvé")
+    - Le numéro de téléphone (réel et vérifié, sinon "Non trouvé")
+    - Le numéro WhatsApp (si disponible, sinon "Non trouvé")
+
+prospecting_email_task:
+  description: >
+    En utilisant la liste de prospects fournie, rédigez un modèle d'e-mail de prospection personnalisé.
+    L'e-mail doit être engageant, pertinent et spécifiquement adapté pour présenter notre produit {product}.
+    Il doit inclure des placeholders comme [Nom du contact] et [Nom de l'entreprise] pour la personnalisation.
+  expected_output: >
+    Un modèle d'e-mail de prospection en français, prêt à être utilisé.
+    Le ton doit être professionnel mais chaleureux.
+    Le tout formaté en Markdown.
+  agent: prospecting_specialist
+
+prospecting_report_task:
+  description: >
+    Compiler les informations de la recherche de prospects et le modèle d'e-mail dans un rapport de prospection complet.
+    Le rapport doit présenter la stratégie de prospection, la liste des cibles et l'approche de communication.
+  expected_output: >
+    Un rapport de prospection complet au format Markdown.
+    Le rapport doit inclure :
+    1. Un résumé de la stratégie de ciblage.
+    2. La liste complète du prospect identifié.
+    3. Le modèle d'e-mail de prospection.
+  agent: content_writer
