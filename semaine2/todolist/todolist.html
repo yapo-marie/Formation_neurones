@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do List Simple</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Ma To-Do List</h1>
+        
+        <form id="todoForm">
+            <input type="text" id="taskInput" placeholder="Ajouter une nouvelle tâche..." required>
+            <button type="submit" id="addBtn">Ajouter</button>
+        </form>
+        
+        <div class="stats">
+            <div class="stat">Total: <span id="totalTasks">0</span></div>
+            <div class="stat">Complétées: <span id="completedTasks">0</span></div>
+            <div class="stat">Restantes: <span id="remainingTasks">0</span></div>
+        </div>
+
+        <ul id="todoList"></ul>
+    </div>
+
+    <script>
+        let tasks = [];
+        let taskIdCounter = 0;
+        const todoForm = document.getElementById('todoForm');
+        const taskInput = document.getElementById('taskInput');
+        const todoList = document.getElementById('todoList');
+        const totalTasksSpan = document.getElementById('totalTasks');
+        const completedTasksSpan = document.getElementById('completedTasks');
+        const remainingTasksSpan = document.getElementById('remainingTasks');
+        todoForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            addTask();
+        });
+        function addTask() {
+            const taskText = taskInput.value.trim();
+            
+            if (taskText === '') {
+                alert('Veuillez entrer une tâche valide !');
+                return;
+            }
+            const task = {
+                id: ++taskIdCounter,
+                text: taskText,
+                completed: false
+            };
+
+            tasks.push(task);
+            taskInput.value = '';
+            renderTasks();
+            updateStats();
+        }
+        function renderTasks() {
+            todoList.innerHTML = '';
+
+            if (tasks.length === 0) {
+                todoList.innerHTML = '<div class="empty-state">Aucune tâche pour le moment.<br>Ajoutez votre première tâche !</div>';
+                return;
+            }
+            tasks.forEach(task => {
+                const listItem = document.createElement('li');
+                listItem.className = `todo-item ${task.completed ? 'completed' : ''}`;
+
+                listItem.innerHTML = `
+                    <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTask(${task.id})">
+                    <span class="task-text">${task.text}</span>
+                    <button class="delete-btn" onclick="deleteTask(${task.id})">Supprimer</button>
+                `;
+
+                todoList.appendChild(listItem);
+            });
+        }
+        function toggleTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                task.completed = !task.completed;
+                renderTasks();
+                updateStats();
+            }
+        }
+        function deleteTask(taskId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?')) {
+                tasks = tasks.filter(t => t.id !== taskId);
+                renderTasks();
+                updateStats();
+            }
+        }
+        function updateStats() {
+            const total = tasks.length;
+            const completed = tasks.filter(t => t.completed).length;
+            const remaining = total - completed;
+
+            totalTasksSpan.textContent = total;
+            completedTasksSpan.textContent = completed;
+            remainingTasksSpan.textContent = remaining;
+        }
+        renderTasks();
+        updateStats();
+        taskInput.focus();
+    </script>
+</body>
+</html>

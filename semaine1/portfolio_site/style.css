@@ -1,0 +1,275 @@
+
+    /* ------------------------------------------------------------------
+       GÉNÉRAL
+    ------------------------------------------------------------------ */
+    :root{
+      --violet-fonce:#11071f;
+      --violet-moyen:#100929;
+      --violet-carte:#1a103d;
+      --accent:#b983ff;
+      --blanc:#ffffff;
+      --gris-clair:#ccc;
+    }
+
+    *{
+      font-family: "Preahvihear", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      
+      background:var(--violet-fonce);
+      color:var(--blanc);
+      line-height:1.6;
+      
+      margin-inline:auto;
+    }
+    
+    main{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content:center ;
+    align-items: center;
+      
+    }
+    a{color:inherit;text-decoration:none}
+
+  
+    .entete{
+      background-color: #1a0b2e;
+      height:50px;
+      padding: 37px 11rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo-site img{height:58px}
+
+    .menu ul{
+      list-style:none;
+      display:flex;
+      gap:7rem;
+      font-size:1.1rem;
+      font-weight:500;
+    }
+
+   
+    .banniere{
+      min-height:793px;
+      padding:4rem 2rem;
+      display:flex;
+      flex-direction:column;
+      margin-right: 468PX;
+      justify-content:center;
+    }
+
+    .contenu-banniere{
+      display:flex;
+      flex-wrap:wrap;
+      gap:3rem;
+      margin-bottom:2rem;
+    }
+
+    .avatar-banniere{
+      position:relative;
+      width:180px;
+      height:180px;
+    }
+    .halo{
+      position:absolute;
+      width: 200px;
+      height: 300px;
+      inset:0;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(196, 130, 255, 0.473) 20%,transparent 70%);
+      filter:blur(10px);
+      border: 2px solid green;
+    }
+    .avatar-banniere  .avatar{
+      position:relative;
+      width:200px;
+      
+      border-radius:50%;
+      animation:flotter 4s ease-in-out infinite;
+    }
+    @keyframes flotter{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-10px)}
+    }
+
+    .fleche-bonjour{
+      
+      display: flex;
+      position:absolute;
+      top:-100px;
+      left:90px;
+      width:328px;
+      font-size:.9rem;
+      color:var(--blanc);
+    }
+
+    .texte-intro{max-width:500px;text-align:left ;position: relative}
+    .texte-intro span{
+      font-size: 50px;
+      bottom: 30px;
+      left: 102px;
+      position: absolute;
+    }
+    .slogan{font-size:1.1rem;margin-bottom:.5rem}
+    .texte-intro h1{font-size:3rem;line-height:1.3;margin:.5rem 0}
+    .div_cover{
+      display: flex;
+    }
+    .div_cover img{
+      bottom: 40px;
+      left: 80px;
+      width: 90000x;
+      position:absolute;
+    }
+    .mot-couverture{color:var(--accent);text-shadow:0 0 5px #7127ba}
+    .sous-texte{font-style:italic;color:var(--gris-clair);margin-top:.5rem}
+
+    /* ------------------------------------------------------------------
+       RÉSUMÉ
+    ------------------------------------------------------------------ */
+    .resume{
+      max-width:700px;
+      margin-top:3rem;
+      text-align:left;
+    }
+    .resume h2{font-size:2.5rem;margin-bottom:1rem}
+    .poste-actuel{font-size:1.1rem;color:var(--gris-clair)}
+    .resume .description{font-size:1rem;line-height:1.8;color:#eee}
+
+    .experience{
+      min-height:604px;
+      padding:4rem 2rem;
+      
+    }
+    .experience h2{font-size:2.5rem;margin-bottom:2rem}
+
+    
+    .cartes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  padding: 2rem 0;
+  max-width: 1200px;
+  width: px;
+  
+}
+
+.carte {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(98,0,234,0.25), rgba(48,0,120,0.5));
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(185,131,255,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(12px);
+  width: 570px;
+  height: 192.68px;
+}
+
+.carte:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(185,131,255,0.3);
+}
+
+
+
+.contenu-carte {
+  text-align: left;
+}
+
+.contenu-carte h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.contenu-carte p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.bouton {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid #b983ff;
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+  font-size: 0.95rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.bouton:hover {
+  background: #b983ff;
+  color: #0b061f;
+}
+
+    .carte:hover{transform:translateY(-6px)}
+    .carte img{width:121.99px;height:115px;margin-right:1rem}
+    .contenu-carte h3{font-size:1.2rem;margin-bottom:.3rem}
+    .contenu-carte p{font-size:.9rem;color:var(--gris-clair)}
+
+    .bouton{
+      display:inline-block;margin-top:1rem;
+      padding:.6rem 1.4rem;
+      border:1px solid var(--accent);
+      border-radius:8px;
+      font-size:1rem;
+      transition:background .3s;
+    }
+    .bouton:hover{background:var(--accent);color:var(--violet-fonce)}
+
+    /* ------------------------------------------------------------------
+       COMPÉTENCES
+    ------------------------------------------------------------------ */
+    .competences{
+      
+      padding:6rem 2rem;
+      text-align:center;
+    }
+    .texte-competences p{font-size:1.3rem;margin:.5rem 0}
+    .icones-tech{
+      display:flex;flex-wrap:wrap;justify-content:center;
+      gap:1.2rem;margin-top:3rem;flex-direction: column;
+    }
+    .icones-tech img{
+      width:30px;height:30px;background:var(--violet-carte);
+      border-radius:50%;padding:.5rem;
+    }
+    .logo-centre img{margin-top:2rem;}
+
+    /* ------------------------------------------------------------------
+       PROJETS
+    ------------------------------------------------------------------ */
+    .projets{padding:4rem 2rem;max-width:1100px;}
+    .projet{
+      display:flex;flex-wrap:wrap;justify-content:space-between;
+      align-items:center;margin-bottom:6rem;
+    }
+    .projet-gauche .image-projet{order:2}
+    .texte-projet{max-width:500px}
+    .texte-projet h3{font-size:1.8rem;margin-bottom:1rem}
+    .desc-projet{
+      background:var(--violet-carte);padding:1rem;border-radius:12px;color:var(--gris-clair)
+    }
+    .image-projet img{width:100%;max-width:500px;border-radius:12px}
+
+    /* ------------------------------------------------------------------
+       PIED DE PAGE
+    ------------------------------------------------------------------ */
+    footer{
+      margin-left:250px ;
+      justify-content:center ;
+      color:#aaa;
+      font-size:1rem;
+    }
